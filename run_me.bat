@@ -28,11 +28,14 @@ echo [4/5] Downloading YOLO model weights...
 python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')"
 
 echo [5/5] Building ScreenESP.exe...
-pyinstaller --name ScreenESP --onefile --noconsole --collect-all mediapipe --collect-all ultralytics --add-data "yolov8n.pt;." main.py
+pyinstaller --name ScreenESP --onedir --console --collect-all mediapipe --collect-all ultralytics --collect-all torch --add-data "yolov8n.pt;." main.py
 
 echo.
-if exist dist\ScreenESP.exe (
-    echo SUCCESS. Your exe is at: dist\ScreenESP.exe
+if exist dist\ScreenESP\ScreenESP.exe (
+    echo SUCCESS. Your exe is at: dist\ScreenESP\ScreenESP.exe
+    echo IMPORTANT: keep it inside the ScreenESP folder - it needs the files next to it.
+    echo Also install the Visual C++ Redistributable if you haven't:
+    echo https://aka.ms/vs/17/release/vc_redist.x64.exe
 ) else (
     echo Something went wrong - scroll up to see the error above.
 )
