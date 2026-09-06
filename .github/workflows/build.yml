@@ -28,10 +28,10 @@ jobs:
 
       - name: Build exe
         run: |
-          pyinstaller --name ScreenESP --onefile --noconsole --collect-all mediapipe --collect-all ultralytics --add-data "yolov8n.pt;." main.py
+          pyinstaller --name ScreenESP --onedir --console --collect-all mediapipe --collect-all ultralytics --collect-all torch --add-data "yolov8n.pt;." main.py
 
-      - name: Upload exe
+      - name: Upload exe folder
         uses: actions/upload-artifact@v4
         with:
           name: ScreenESP
-          path: dist/ScreenESP.exe
+          path: dist/ScreenESP/
