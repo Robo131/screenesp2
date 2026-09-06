@@ -1,0 +1,7 @@
+mss==9.0.1
+numpy==1.26.4
+opencv-python==4.10.0.84
+ultralytics==8.3.0
+mediapipe==0.10.14
+PyQt6==6.7.1
+pywin32==306
